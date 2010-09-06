@@ -1,4 +1,4 @@
 import os
 
 def install():
-    os.system("")
+    os.system("sudo apt-get install rlwrap mosml")
