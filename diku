@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+
+def printHelp():
+    print("dis txt wil halp u")
+
+if len(sys.argv) < 2:
+    printHelp()
+    sys.exit()
+
+try:
+    if re.search("[^a-z0-9]", sys.argv[1]) != None:
+        print("Only a-z is allowed in command name")
+        printHelp()
+        sys.exit(-1)
+
+    M = __import__(sys.argv[1]).__dict__[sys.argv[1]]
+except:
+    print("Module could not be found")
+    printHelp()
+    sys.exit(-1)
+
+M()
